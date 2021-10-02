@@ -19,3 +19,14 @@ cmake ..
 make -j $( nproc )
 sudo make install
 ```
+
+# Usage
+
+Ratarmount++ requires a preexisting index file, therefore the workflow is like follows:
+
+```bash
+ratarmount mylargetar.tar mountpoint  # creates index
+fusermount -u mountpoint
+ratarmount++ mylargetar.tar mountpoint
+src/tools/benchmark-reading mountpoint
+```
